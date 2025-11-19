@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>RootedCON Labs Hub</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-900 text-gray-100 min-h-screen flex flex-col items-center p-6">
+  <h1 class="text-3xl font-bold mb-6">Rooted Málaga: JSON Parsers Interoperability</h1>
+  <div class="w-full max-w-3xl space-y-4">
+
+    <!-- ================= LAB 1 ================= -->
+    <div class="bg-gray-800 rounded-2xl shadow-lg">
+      <button onclick="toggleLab('lab1')" class="w-full text-left p-4 font-semibold text-xl hover:bg-gray-700 rounded-t-2xl">
+        Lab 1: buger/jsonparser and python default discrepancie with duplicate key
+      </button>
+      <div id="lab1" class="hidden border-t border-gray-700 p-4 space-y-6">
+        <div class="space-y-3">
+          <h2 class="text-lg font-semibold">Login</h2>
+          <textarea id="lab1-login-request" class="w-full p-2 bg-gray-900 border border-gray-700 rounded-xl font-mono text-sm" rows="6">
+{
+  "user": "daniel",
+  "password": "1234",
+  "role": "moderator"
+}
+          </textarea>
+          <button onclick="sendLogin('lab1')" class="px-4 py-2 bg-green-600 hover:bg-green-500 rounded-xl font-semibold">Send Login</button>
+          <div>
+            <span id="lab1-login-status" class="block font-semibold mb-1"></span>
+            <pre id="lab1-login-response" class="w-full p-2 bg-black border border-gray-700 rounded-xl text-sm overflow-x-auto">---</pre>
+          </div>
+        </div>
+
+        <div class="space-y-3">
+          <h2 class="text-lg font-semibold">Verify Token</h2>
+          <textarea id="lab1-verify-request" class="w-full p-2 bg-gray-900 border border-gray-700 rounded-xl font-mono text-sm" rows="4">
+{
+  "token": ""
+}
+          </textarea>
+          <button onclick="sendVerify('lab1')" class="px-4 py-2 bg-blue-600 hover:bg-blue-500 rounded-xl font-semibold">Send Verify</button>
+          <div>
+            <span id="lab1-verify-status" class="block font-semibold mb-1"></span>
+            <pre id="lab1-verify-response" class="w-full p-2 bg-black border border-gray-700 rounded-xl text-sm overflow-x-auto">---</pre>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ================= LAB 2 ================= -->
+    <div class="bg-gray-800 rounded-2xl shadow-lg">
+      <button onclick="toggleLab('lab2')" class="w-full text-left p-4 font-semibold text-xl hover:bg-gray-700 rounded-t-2xl">
+        Lab 2: NaN usage
+      </button>
+      <div id="lab2" class="hidden border-t border-gray-700 p-4 space-y-6">
+
+        <div class="space-y-3">
+          <h2 class="text-lg font-semibold">Check Wallet</h2>
+          <textarea id="lab2-wallet-request" class="w-full p-2 bg-gray-900 border border-gray-700 rounded-xl font-mono text-sm" rows="4">
+{
+  "user": "daniel"
+}
+          </textarea>
+          <button onclick="sendWallet('lab2')" class="px-4 py-2 bg-green-600 hover:bg-green-500 rounded-xl font-semibold">Send Wallet</button>
+          <div>
+            <span id="lab2-wallet-status" class="block font-semibold mb-1"></span>
+            <pre id="lab2-wallet-response" class="w-full p-2 bg-black border border-gray-700 rounded-xl text-sm overflow-x-auto">---</pre>
+          </div>
+        </div>
+
+        <div class="space-y-3">
+          <h2 class="text-lg font-semibold">Buy Product</h2>
+          <textarea id="lab2-buy-request" class="w-full p-2 bg-gray-900 border border-gray-700 rounded-xl font-mono text-sm" rows="5">
+{
+  "user": "daniel",
+  "quantity": 1
+}
+          </textarea>
+          <button onclick="sendBuy('lab2')" class="px-4 py-2 bg-blue-600 hover:bg-blue-500 rounded-xl font-semibold">Send Buy</button>
+          <div>
+            <span id="lab2-buy-status" class="block font-semibold mb-1"></span>
+            <pre id="lab2-buy-response" class="w-full p-2 bg-black border border-gray-700 rounded-xl text-sm overflow-x-auto">---</pre>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ================= LAB 3 (Perl) ================= -->
+    <div class="bg-gray-800 rounded-2xl shadow-lg">
+      <button onclick="toggleLab('lab3')" class="w-full text-left p-4 font-semibold text-xl hover:bg-gray-700 rounded-t-2xl">
+        Lab 3: Integer overflow
+      </button>
+      <div id="lab3" class="hidden border-t border-gray-700 p-4 space-y-6">
+
+        <div class="space-y-3">
+          <h2 class="text-lg font-semibold">Check Wallet</h2>
+          <textarea id="lab3-wallet-request" class="w-full p-2 bg-gray-900 border border-gray-700 rounded-xl font-mono text-sm" rows="4">
+{
+  "user": "daniel"
+}
+          </textarea>
+          <button onclick="sendWallet('lab3')" class="px-4 py-2 bg-green-600 hover:bg-green-500 rounded-xl font-semibold">Send Wallet</button>
+          <div>
+            <span id="lab3-wallet-status" class="block font-semibold mb-1"></span>
+            <pre id="lab3-wallet-response" class="w-full p-2 bg-black border border-gray-700 rounded-xl text-sm overflow-x-auto">---</pre>
+          </div>
+        </div>
+
+        <div class="space-y-3">
+          <h2 class="text-lg font-semibold">Buy Product</h2>
+          <textarea id="lab3-buy-request" class="w-full p-2 bg-gray-900 border border-gray-700 rounded-xl font-mono text-sm" rows="5">
+{
+  "user": "daniel",
+  "quantity": 1
+}
+          </textarea>
+          <button onclick="sendBuy('lab3')" class="px-4 py-2 bg-blue-600 hover:bg-blue-500 rounded-xl font-semibold">Send Buy</button>
+          <div>
+            <span id="lab3-buy-status" class="block font-semibold mb-1"></span>
+            <pre id="lab3-buy-response" class="w-full p-2 bg-black border border-gray-700 rounded-xl text-sm overflow-x-auto">---</pre>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ================= JS ================= -->
+  <script>
+    function toggleLab(id) {
+      document.getElementById(id).classList.toggle("hidden");
+    }
+
+    function setStatus(elId, status) {
+      const el = document.getElementById(elId);
+      el.textContent = "HTTP " + status;
+      if (status >= 200 && status < 300)
+        el.className = "block font-semibold mb-1 text-green-400";
+      else if (status >= 400 && status < 500)
+        el.className = "block font-semibold mb-1 text-yellow-400";
+      else
+        el.className = "block font-semibold mb-1 text-red-500";
+    }
+
+    async function sendLogin(labId) {
+      const reqBox = document.getElementById(labId + "-login-request");
+      const resBox = document.getElementById(labId + "-login-response");
+      try {
+        const resp = await fetch("/" + labId + "/login", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: reqBox.value
+        });
+        setStatus(labId + "-login-status", resp.status);
+        const text = await resp.text();
+        try {
+          const json = JSON.parse(text);
+          resBox.textContent = JSON.stringify(json, null, 2);
+          if (json.token) {
+            document.getElementById(labId + "-verify-request").value = JSON.stringify({ token: json.token }, null, 2);
+          }
+        } catch { resBox.textContent = text; }
+      } catch (err) { resBox.textContent = "Error: " + err; }
+    }
+
+    async function sendVerify(labId) {
+      const reqBox = document.getElementById(labId + "-verify-request");
+      const resBox = document.getElementById(labId + "-verify-response");
+      try {
+        const resp = await fetch("/" + labId + "/verify", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: reqBox.value
+        });
+        setStatus(labId + "-verify-status", resp.status);
+        const text = await resp.text();
+        try { resBox.textContent = JSON.stringify(JSON.parse(text), null, 2); }
+        catch { resBox.textContent = text; }
+      } catch (err) { resBox.textContent = "Error: " + err; }
+    }
+
+    async function sendWallet(labId) {
+      const reqBox = document.getElementById(labId + "-wallet-request");
+      const resBox = document.getElementById(labId + "-wallet-response");
+      try {
+        const resp = await fetch("/" + labId + "/wallet", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: reqBox.value
+        });
+        setStatus(labId + "-wallet-status", resp.status);
+        const text = await resp.text();
+        try {
+          const json = JSON.parse(text);
+          resBox.textContent = JSON.stringify(json, null, 2);
+          if (json.balance !== undefined) {
+            document.getElementById(labId + "-buy-request").value = JSON.stringify({
+              user: JSON.parse(reqBox.value).user,
+              quantity: 1
+            }, null, 2);
+          }
+        } catch { resBox.textContent = text; }
+      } catch (err) { resBox.textContent = "Error: " + err; }
+    }
+
+    async function sendBuy(labId) {
+      const reqBox = document.getElementById(labId + "-buy-request");
+      const resBox = document.getElementById(labId + "-buy-response");
+      try {
+        const resp = await fetch("/" + labId + "/buy", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: reqBox.value
+        });
+        setStatus(labId + "-buy-status", resp.status);
+        const text = await resp.text();
+        try { resBox.textContent = JSON.stringify(JSON.parse(text), null, 2); }
+        catch { resBox.textContent = text; }
+      } catch (err) { resBox.textContent = "Error: " + err; }
+    }
+  </script>
+</body>
+</html>

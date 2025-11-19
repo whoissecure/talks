@@ -1,0 +1,41 @@
+services:
+  hub-proxy:
+    image: nginx:1.25
+    volumes:
+      - ./hub/nginx.conf:/etc/nginx/nginx.conf:ro
+    ports:
+      - "9000:80"
+    depends_on:
+      - hub-app
+      - lab1-go
+      - lab1-python
+      - lab2-python
+
+  hub-app:
+    build: ./hub
+    expose:
+      - "5000"
+
+  lab1-go:
+    build: ./lab1-go
+    expose:
+      - "8080"
+    depends_on:
+      - lab1-python
+
+  lab1-python:
+    build: ./lab1-python
+    expose:
+      - "5000"
+
+  lab2-python:
+    build: ./lab2-python
+    expose:
+      - "5000"
+
+  lab3-perl:
+    build: ./lab3-perl
+    expose:
+      - "5000"
+    depends_on:
+      - hub-app
